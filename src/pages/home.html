@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>Modern Homepage</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  background-image: url("https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/pattern.png?v=1684864343130");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    
+    
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  border-radius: 10px;
+  margin-left: 5%;
+  margin-top: 1%;
+  z-index: 999;
+  background-color: rgb(39,37,57);
+  padding: 20px;
+  font-size:20px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.left-elements h2 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.right-elements ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.right-elements ul li {
+  margin-left: 10px;
+}
+
+.right-elements ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.content {
+  display:flex;
+  flex-direction:horizontal;
+  margin-top: 80px;
+  padding-top: 20px; /* Added padding to prevent content from being hidden behind the fixed navbar */
+  color: #fff;
+  margin: 2%;
+  margin-top: 10%;
+  border-radius: 10px;
+  
+}
+
+  
+    
+.rbtn {
+    width: 43%;
+    padding: 20px;
+    background-color: #6a5cd0;
+    color: #ffffff;
+    border: none;
+    border-radius: 6.5px;
+    cursor: pointer;
+    margin-top: 7%;
+    font-size: x-large;
+  
+}
+
+.rbtn:hover {
+  transition:1s;
+    background-color: white;
+    color: blue;
+    box-shadow: 10px 10px 10px black;
+  /* Adjust the color for the hover effect */
+}
+
+.lbtn {
+    width: 43%;
+    padding: 20px;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    border-radius: 6.5px;
+    cursor: pointer;
+    margin-top: 7%;
+    font-size: x-large;
+    border: 4px solid white; 
+}
+
+.lbtn:hover {
+  transition:1s;
+  background-color: white;
+  color: blue;
+  box-shadow: 10px 10px 10px black;
+  border: 4px solid blue; 
+  /* Adjust the color for the hover effect */
+}
+
+    
+
+    
+/* Add a margin to the content to create space below the fixed navbar */
+main {
+  margin-top: 60px;
+}
+
+.left-column {
+  flex: 1;
+  width:50%;
+  height:100%;
+  text-align:left;
+  padding:60px;
+  
+  
+}
+
+.right-column {
+  flex: 1;
+  height:100%;
+  width:50%;
+  text-align: right;
+  padding:30px;
+
+}
+
+.right-column img {
+  max-width: 100%;
+  max-height:100%
+}
+
+
+  @media screen and (max-width: 800px) {
+
+.left-column {
+  flex: 1;
+  width:100%;
+  height:100%;
+  text-align:left;
+  padding:60px;
+  
+  
+}
+
+.right-column {
+  display:none;
+
+}
+  }
+
+  @media screen and (max-width: 600px) {
+
+.left-column {
+  flex: 1;
+  width:100%;
+  height:100%;
+  text-align:left;
+  padding:60px;
+  
+  
+}
+
+.right-column {
+  display:none;
+
+}
+  }
+    
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="navbar-container">
+      <div class="left-elements">
+        <h2 ><a href="/home" style="text-decoration:none;color:white;">ElectiveMGT</a> </h2>
+      </div>
+      <div class="right-elements">
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/call_page">Register</a></li>
+          <li><a href="/">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="left-column">
+      <p>
+      <span style="font-size:80px;font-family: 'Roboto', sans-serif;color: white;">Welcome to ElectiveMGT</span><br>
+      <span style="font-family: 'Roboto', sans-serif;font-size: xx-large;color: azure;text-align: center; ">Select your electives with ease!</span>
+      </p> 
+        <div style="display:flex;flex-direction:row;width:90%;justify-content:space-around;">
+          <input type="button" value="Register" class="rbtn" onclick="window.location.href='/call_page'">
+          <input type="button" value="Login" class="lbtn" onclick="window.location.href='/'">
+        </div>
+      </div>
+
+    <div class="right-column">
+      <img src="https://cdn.glitch.global/4bc61e48-1f07-46ae-ab91-c1cee4b12763/omg.png?v=1686898163157" alt="Vector Image">
+    </div>
+  </div>
+</body>
+</html>

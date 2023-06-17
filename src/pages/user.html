@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>User Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* CSS styles for the page */
+    *,html,body{
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      font-family: Poppins, sans-serif;
+      background-image: url("https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/pattern.png?v=1684864343130");
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      width: 90%;
+      height: 10vh;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-top: 2vh;
+      background-color:  #292836;
+      color: #fff;
+      border-radius: 1vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1vh;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar ul li {
+      margin-right: 2vh;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 1vh;
+      display: block;
+      font-size: 2vh;
+    }
+
+    .navbar ul.right-elements {
+      align-self: center; /* Adjust the alignment as desired */
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    /* CSS styles for the user details */
+    .user-details-container {
+      display: flex;
+      flex-wrap: wrap; /* Allow the elements to wrap */
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .user-details {
+      width: 1024px;
+      height: 500px;
+      display: flex;
+      flex-direction: row; /* Stack elements vertically */
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: #f1f1f1;
+      justify-content: space-around;
+    }
+
+    .user-details img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+    }
+
+    .user-details .info {
+      text-align: left;
+    }
+
+    .user-details ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .user-details ul li {
+      margin-bottom: 10px;
+    }
+
+    .d a:hover {
+      text-decoration: underline;
+    }
+    
+    .user-image{
+
+        width: 40px;
+        height: 40px;
+    }
+    
+    .info{
+        font-size: 19px;
+    }
+    
+    .cr{
+        font-size: 19px;
+    }
+    
+    .cours{
+        font-size: 19px;
+        
+    }
+    
+    .cours li {
+        list-style-type: disc; 
+        margin-left: 10%; 
+    }
+    
+    .info strong {
+          margin-top: 8%;
+    }
+  
+    
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <ul>
+      <li><a href="/home" style="display:block; margin-top: 3px; margin-left: 15px; font-weight: bold; font-size: 30px;">ElectiveMGT</a></li>
+    </ul>
+    <ul class="d">
+      <li><a style="display:block; margin-top: -5px; font-size: 20px;" onclick="func()">Home</a></li>
+      <li><a style="display:block; margin-top: -5px; font-size: 20px;" onclick="fun()">Register</a></li>
+      <li><a style="display:block; margin-top: -5px; font-size: 20px;" onclick="fu()" >Elective List</a></li>
+      <li><a style="display:block; margin-top: -5px; font-size: 20px;" onclick="f()">Final List</a></li>
+      <li>
+        <a href="/">
+          <img src="https://cdn.glitch.global/4bc61e48-1f07-46ae-ab91-c1cee4b12763/user-139.png?v=1686851020373" style="width:50px; height:50px; margin-top: 8px;">
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="user-details-container">
+      <div class="user-details" id="user-details">
+          <div class="user_img" id="user_img"></div>
+      </div>
+    </div>
+    <!-- Additional content goes here -->
+  </div>
+
+  <script>
+    
+    var ind = 0;
+    const userDetails = JSON.parse(localStorage.getItem("Users"));
+    
+    function func(){
+      const userDetails = JSON.parse(localStorage.getItem("Users"));
+      const name = JSON.parse(localStorage.getItem("USERNAME"));
+      var ind = 0;
+      for (var i = 0; i < userDetails.length; i++) {
+        if (userDetails[i].name == name) {
+          ind = i;
+          break;
+        }
+      }
+      if (userDetails[ind].type == "stud") {
+        document.location.href="./oes_stu";
+      } else {
+        document.location.href="./oes_admin";
+      }
+
+    }
+    
+    function fun(){
+      if (userDetails[ind].type == "stud") {
+        document.location.href="./reg_stu";
+        
+      } else {
+        document.location.href="./reg_admin";
+      }
+
+    }
+    
+    function fu(){
+      if (userDetails[ind].type == "stud") {
+        document.location.href="./oes_stu";
+        
+      } else {
+        document.location.href="./oes_admin";
+      }
+
+    }
+    
+    function f(){
+      if (userDetails[ind].type == "stud") {
+        document.location.href="./final_list_stu";
+        
+      } else {
+        document.location.href="./final_list";
+      }
+
+    }
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      
+      async function fetch_vals(){
+        console.log("puta")
+        response = await fetch("./log_me");
+        data = await response.json();
+        obj = data;
+        localStorage.setItem('Users', JSON.stringify(obj));
+      }
+    
+      fetch_vals();
+      
+      const reg = document.getElementsByClassName("reg")
+      const all = document.getElementsByClassName("all")
+      // Simulating user details data
+      const userDetails = JSON.parse(localStorage.getItem("Users"));
+      const name = JSON.parse(localStorage.getItem("USERNAME"));
+      var ind = 0;
+      for (var i = 0; i < userDetails.length; i++) {
+        if (userDetails[i].name == name) {
+          ind = i;
+          break;
+        }
+      }
+      var type, dept;
+      if (userDetails[ind].type == "stud") {
+        type = "Student";
+      } else {
+        type = "Faculty";
+      }
+
+      if (userDetails[ind].dept == "CSE") {
+        dept = "Computer Science and Engineering";
+      } else if (userDetails[ind].dept == "MECH") {
+        dept = "Mechanical Engineering";
+      } else if (userDetails[ind].dept == "EEE") {
+        dept = "Electrical and Electronics Engineering";
+      } else if (userDetails[ind].dept == "INT") {
+        dept = "Integrated Degree";
+      }
+
+      // Displaying user details
+      const userDetailsContainer = document.getElementById('user-details');
+
+      const userImage = document.createElement('img');
+      userImage.src = "https://cdn.glitch.global/4bc61e48-1f07-46ae-ab91-c1cee4b12763/585e4bf3cb11b227491c339a.png?v=1686855196240";
+      userImage.className = 'user-image'; // Added class name for styling
+
+      const userInfo = document.createElement('div');
+      const ulel = document.createElement('ul');
+
+      // for (var i = 0; i < userDetails[ind].comp.length; ++i) {
+      //   var li = document.createElement('li');
+      //   li.innerText = userDetails[ind].comp[i];
+      //   ulel.appendChild(li);
+      // }
+      userInfo.className = 'info';
+      if (type == "Student"){
+          userInfo.innerHTML = `
+        <strong style="font-size: 45px;">${userDetails[ind].name}</strong><br>
+        <strong style="font-size: 38px;">${userDetails[ind].roll}</strong><br>
+        <p style="font-size: 30px; font-weight: bold;">${userDetails[ind].email}</p>
+        <p style="font-size: 28px;"">${userDetails[ind].phno}</p>
+        <p style="font-size: 25px;">${type}</strong>
+        <p style="font-size: 23px;">SEMESTER ${userDetails[ind].sem}</p>
+        <p style="font-size: 20px; font-weight: bold;">${dept}</p><br>
+        <p style="font-size: 20px;"><strong>Username: </strong>${userDetails[ind].username}</p>
+        <p style="font-size: 20px;"><a style="color: black;" onmouseover='this.style.textDecoration="underline"' href="/fp">Forgot Password</a><p>
+      `;
+      }
+      else{
+          userInfo.innerHTML = `
+        <strong style="font-size: 45px;">${userDetails[ind].name}</strong><br>
+        <strong style="font-size: 38px;">${userDetails[ind].roll}</strong><br>
+        <p style="font-size: 30px;">${userDetails[ind].email}</p>
+        <p style="font-size: 28px;"">${userDetails[ind].phno}</p>
+        <p style="font-size: 25px;">${type}</strong>
+        <p style="font-size: 20px; font-weight: bold;">${dept}</p><br>
+        <p style="font-size: 20px;"><strong>Username: </strong>${name}</p>
+        <p style="font-size: 20px;"><a style="color: black; onmouseover='this.style.textDecoration="underline"' href="/fp">Forgot Password</a><p>
+      `;
+      }
+
+      const coursesCompletedHeader = document.createElement('strong');
+      coursesCompletedHeader.className = "cr";
+      const img = document.getElementById('user_img');
+      img.appendChild(userImage);
+      // coursesCompletedHeader.innerText = 'Courses Completed:';
+      const coursesCompletedList = document.createElement('ul');
+      coursesCompletedList.appendChild(coursesCompletedHeader);
+      // coursesCompletedList.appendChild(ulel);
+
+      const userDetailsWrapper = document.createElement('div');
+      userDetailsWrapper.className = 'user-details-wrapper';
+      userDetailsWrapper.appendChild(userInfo);
+      userDetailsWrapper.appendChild(coursesCompletedList);
+
+      userDetailsContainer.appendChild(userDetailsWrapper);
+    });
+  </script>
+</body>
+
+</html>

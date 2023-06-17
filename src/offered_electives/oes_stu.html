@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elective List</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+
+    <script type="text/javascript" src="/css/jasc.js"></script>
+
+    <div class="blur">
+
+    </div>
+
+    <!-- <svg class="svg" width="100%" height="100%" id="svg" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><defs><linearGradient id="gradient" x1="1%" y1="40%" x2="99%" y2="60%"><stop offset="5%" stop-color="#884fc9"></stop><stop offset="95%" stop-color="#f78da7"></stop></linearGradient></defs><path d="M 0,600 C 0,600 0,120 0,120 C 74.22238586156112,130.61634756995582 148.44477172312224,141.23269513991164 206,134 C 263.55522827687776,126.76730486008837 304.44329896907215,101.68556701030928 350,87 C 395.55670103092785,72.31443298969072 445.78203240058906,68.02503681885128 509,84 C 572.2179675994109,99.97496318114872 648.4285714285714,136.2142857142857 709,141 C 769.5714285714286,145.7857142857143 814.5036818851253,119.11782032400589 881,101 C 947.4963181148747,82.88217967599411 1035.5567010309278,73.31443298969072 1108,81 C 1180.4432989690722,88.68556701030928 1237.2695139911634,113.62444771723122 1290,123 C 1342.7304860088366,132.37555228276878 1391.3652430044183,126.18777614138439 1440,120 C 1440,120 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.265" class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 300)"></path><defs><linearGradient id="gradient" x1="1%" y1="40%" x2="99%" y2="60%"><stop offset="5%" stop-color="#884fc9"></stop><stop offset="95%" stop-color="#f78da7"></stop></linearGradient></defs><path d="M 0,600 C 0,600 0,240 0,240 C 61.667893961708415,225.3050441826215 123.33578792341683,210.610088365243 190,221 C 256.66421207658317,231.389911634757 328.3247422680412,266.8646907216495 382,273 C 435.6752577319588,279.1353092783505 471.3652430044183,255.93114874815902 530,246 C 588.6347569955817,236.06885125184098 670.2142857142857,239.41071428571433 731,241 C 791.7857142857143,242.58928571428567 831.7776141384388,242.4259941089838 892,241 C 952.2223858615612,239.5740058910162 1032.6752577319587,236.88530927835052 1104,227 C 1175.3247422680413,217.11469072164948 1237.5213549337261,200.0327687776141 1292,201 C 1346.4786450662739,201.9672312223859 1393.239322533137,220.98361561119293 1440,240 C 1440,240 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.4" class="transition-all duration-300 ease-in-out delay-150 path-1" transform="rotate(-180 720 300)"></path><defs><linearGradient id="gradient" x1="1%" y1="40%" x2="99%" y2="60%"><stop offset="5%" stop-color="#884fc9"></stop><stop offset="95%" stop-color="#f78da7"></stop></linearGradient></defs><path d="M 0,600 C 0,600 0,360 0,360 C 63.948269513991164,342.0486008836524 127.89653902798233,324.09720176730485 177,327 C 226.10346097201767,329.90279823269515 260.3621134020619,353.659793814433 326,356 C 391.6378865979381,358.340206185567 488.6550073637702,339.2636229749632 561,336 C 633.3449926362298,332.7363770250368 681.0178571428572,345.2857142857143 739,345 C 796.9821428571428,344.7142857142857 865.2735640648011,331.5935198821797 919,343 C 972.7264359351989,354.4064801178203 1011.887886597938,390.340206185567 1063,402 C 1114.112113402062,413.659793814433 1177.1748895434462,401.04565537555226 1242,390 C 1306.8251104565538,378.95434462444774 1373.412555228277,369.47717231222384 1440,360 C 1440,360 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-2" transform="rotate(-180 720 300)"></path><defs><linearGradient id="gradient" x1="1%" y1="40%" x2="99%" y2="60%"><stop offset="5%" stop-color="#884fc9"></stop><stop offset="95%" stop-color="#f78da7"></stop></linearGradient></defs><path d="M 0,600 C 0,600 0,480 0,480 C 52.16273932253314,454.72312223858614 104.32547864506628,429.44624447717234 164,439 C 223.67452135493372,448.55375552282766 290.860824742268,492.93814432989694 361,494 C 431.139175257732,495.06185567010306 504.23122238586154,452.80117820324006 566,460 C 627.7687776141385,467.19882179675994 678.2142857142858,523.8571428571429 731,524 C 783.7857142857142,524.1428571428571 838.9116347569956,467.7702503681885 900,444 C 961.0883652430044,420.2297496318115 1028.1391752577322,429.06185567010317 1091,448 C 1153.8608247422678,466.93814432989683 1212.5316642120765,495.9823269513991 1270,503 C 1327.4683357879235,510.0176730486009 1383.7341678939617,495.0088365243005 1440,480 C 1440,480 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-3" transform="rotate(-180 720 300)"></path></svg> -->
+    <!-- <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#a03fc0"></stop><stop offset="95%" stop-color="#e6459e"></stop></linearGradient></defs><path d="M 0,700 C 0,700 0,140 0,140 C 60.248711782892485,147.41188594984544 120.49742356578497,154.82377189969085 200,153 C 279.50257643421503,151.17622810030915 378.25901751975266,140.11679835108208 449,140 C 519.7409824802473,139.88320164891792 562.4665063552043,150.70903469598076 612,139 C 661.5334936447957,127.29096530401924 717.8749570594299,93.04706286499486 791,97 C 864.1250429405701,100.95293713500514 954.0336654070766,143.10271384403987 1036,151 C 1117.9663345929234,158.89728615596013 1191.9903813122637,132.54208175884577 1258,125 C 1324.0096186877363,117.45791824115425 1382.0048093438681,128.72895912057712 1440,140 C 1440,140 1440,700 1440,700 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.265" class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 350)"></path><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#a03fc0"></stop><stop offset="95%" stop-color="#e6459e"></stop></linearGradient></defs><path d="M 0,700 C 0,700 0,280 0,280 C 45.78083132944005,258.4513912744761 91.5616626588801,236.90278254895225 167,243 C 242.4383373411199,249.09721745104775 347.53418069391967,282.84026107866714 421,280 C 494.46581930608033,277.15973892133286 536.3016145654415,237.7361731363792 604,252 C 671.6983854345585,266.2638268636208 765.2593610443148,334.215046375816 846,329 C 926.7406389556852,323.784953624184 994.6609412573,245.40364136035726 1047,233 C 1099.3390587427,220.59635863964274 1136.0968739264858,274.17038818275506 1199,293 C 1261.9031260735142,311.82961181724494 1350.951563036757,295.9148059086225 1440,280 C 1440,280 1440,700 1440,700 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.4" class="transition-all duration-300 ease-in-out delay-150 path-1" transform="rotate(-180 720 350)"></path><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#a03fc0"></stop><stop offset="95%" stop-color="#e6459e"></stop></linearGradient></defs><path d="M 0,700 C 0,700 0,420 0,420 C 64.34008931638611,413.4098248024734 128.68017863277223,406.8196496049468 192,415 C 255.31982136722777,423.1803503950532 317.61937478529717,446.1312263826863 392,461 C 466.38062521470283,475.8687736173137 552.842322226039,482.65544486430775 630,467 C 707.157677773961,451.34455513569225 775.0113363105463,413.24699416008247 848,416 C 920.9886636894537,418.75300583991753 999.112332531776,462.3565784953624 1065,468 C 1130.887667468224,473.6434215046376 1184.5393335623498,441.3266918584679 1245,427 C 1305.4606664376502,412.6733081415321 1372.730333218825,416.33665407076603 1440,420 C 1440,420 1440,700 1440,700 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-2" transform="rotate(-180 720 350)"></path><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#a03fc0"></stop><stop offset="95%" stop-color="#e6459e"></stop></linearGradient></defs><path d="M 0,700 C 0,700 0,560 0,560 C 56.243902439024396,545.2037100652697 112.48780487804879,530.4074201305393 180,529 C 247.5121951219512,527.5925798694607 326.29268292682923,539.5740295431124 406,536 C 485.70731707317077,532.4259704568876 566.3414634146342,513.2964616970113 643,524 C 719.6585365853658,534.7035383029887 792.3414634146342,575.2401236688423 848,595 C 903.6585365853658,614.7598763311577 942.2926829268295,613.7430436276194 1014,590 C 1085.7073170731705,566.2569563723806 1190.4878048780486,519.7877018206802 1267,511 C 1343.5121951219514,502.2122981793198 1391.7560975609758,531.1061490896599 1440,560 C 1440,560 1440,700 1440,700 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-3" transform="rotate(-180 720 350)"></path></svg> -->
+    <nav class="sidenav">
+        <header>
+            <div class="text">
+                <div class="name">ElectiveMGT</div>
+            </div>
+            <!-- insert icon here -->
+        </header>
+
+        <div class="menu">
+            <ul class="menu-links">
+                <!-- item 1 -->
+                <li class="nav-link active"><a href="#"><!-- insert icon here --><span
+                            class="text nav-text">Home</span></a>
+                </li>
+                <!-- item 2 -->
+                <li class="nav-link active"><a id="ele" href="#"><!-- insert icon here --><span
+                            class="text nav-text">Elective List</span></a>
+                </li>
+                <!-- item 3 -->
+                <li class="nav-link active"><a href="/reg_stu"><!-- insert icon here --><span
+                            class="text nav-text">Register</span></a>
+                </li>
+                <!-- item 3 -->
+                <li class="nav-link active"><a href="#"><!-- insert icon here --><span
+                            class="text nav-text">Profile</span></a>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </nav>
+
+    <div class="func">
+      <p>Students can search for electives, by course name, course code, and also filter based of status or type of electives...</p>   </div>
+
+
+    <div class="connav">
+        <div class="search-area">
+            <input type="text" style="color:white;" id="search_text" placeholder="Search here..." onchange="sear()"/>
+            <button value="search" id="search_button" onclick="sear()">Search</button>
+        </div>
+
+
+        <hr style="width: 90%; opacity: 0.4;">
+        <br>
+
+        <div class="filter">
+
+<!--             <button class="filt" onclick="showELe('all')">All</button> -->
+<!--             <button class="filt" onclick="showELe('')">Department</button> -->
+            <button class="filt" name="Offered" onclick="showOF('Offered')">Currently Offered</button>
+            <button class="filt" name = "PE" onclick="showTE('PE')">Professional Electives</button>
+            <button class="filt" name = "FE" onclick="showTE('FE')">Free Electives</button>
+        </div>
+
+        <br>
+<!--         <hr style="width: 90%; opacity: 0.4;"> -->
+
+
+<!--         <div class="y">
+
+            <button class="yb" onclick="openDialog('m1')">
+                <p>Offer New Elective</p>
+            </button>
+
+
+            <button class="yb" onclick="openDialog('m2')">
+                <p>Change Elective Status</p>
+            </button>
+
+
+        </div> -->
+    </div>
+
+    <div class="m1">
+        <form method="dialog" id="ofe" onsubmit="dialogSubmit(event)">
+            <div class="col">
+
+                    <label>Course Code</label>
+                    <input class="ofe1" type="text" name="cc" id="cc" placeholder="Course Code" required/>
+                    <label>Name of the Elective</label>
+                    <input class="ofe1" type="text" name="n" id="n" placeholder="Name of the Elective" required/>
+                    <label>Department</label>
+                    <input class="ofe1" type="text" name="d" id="d" placeholder="Department" required/>
+
+                    <label>Type</label>
+<!--                     <input class="ofe1" type="text" name="type" id="type" placeholder="Type" required="required"/> -->
+                    <select class="ofe1" id="type">
+    <option value=" "> </option>
+    <option value="PE">Professional Elective</option>
+    <option value="FE">Free Elective</option>
+  required</select>
+                    <label>Sem</label>
+                    <input class="ofe1" type="number" name="sem" id="sem" placeholder="Sem" min="4" max="8" required/>
+                    <label>Status</label>
+<!--                     <input class="ofe1" type="text" name="status" id="status" placeholder="Status" required="required"/> -->
+                      <select class="ofe1" id="status" >
+    <option value=" "> </option>
+    <option value="Offered">Offered</option>
+    <option value="Not_Offered">Not OFfered</option>
+   required</select>
+            </div>
+
+
+            <div class="row">
+
+    
+                    <label>Category</label>
+                    <input class="ofe1" type="text" name="cat" id="cat" placeholder="Category" required/>
+                    <label>Credits</label>
+                    <input class="ofe1" type="number" name="cre" id="cre" placeholder="Credits" min="0" max="4" required/>
+                    <label>L-T-C</label>
+                    <input class="ofe1" type="text" name="L_T_C" id="L_T_C" placeholder="L-T-C" required/>
+
+
+
+
+
+                <div class="brow">
+                    <button type="submit" onclick="offerElective('m1')">Submit</button>
+                    <button type="reset" onclick="closeDialog('m1')">Cancel</button>
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="m2">
+        <div id="deleteContainer"></div>
+
+
+
+
+    </div>
+  
+      <div class="m3">
+        <div id="updateContainer"></div>
+
+
+
+
+    </div>
+
+
+
+    <div class="wrap">
+
+        <div id="dataContainer"></div>
+
+
+    </div>
+
+    <div class="res">
+
+    </div>
+  
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchDataAndDisplay();
+            fetchDataAndDisplay1();
+            // fetchData();
+            // fetchDataAndDisplay2();
+        });
+
+    async function fetchDataAndDisplay() {
+        fetch("/get_offered_electives")
+          .then((response) => response.json())
+          .then((data) => {
+            const dataContainer = document.getElementById("dataContainer");
+            // const deleteContainer = document.getElementById('deleteContainer');
+            // const updateContainer = document.getElementById('updateContainer');
+
+            data.forEach((item, index) => {
+              const div = document.createElement("div");
+              const p1 = document.createElement("p");
+              const p2 = document.createElement("p");
+              const dets = document.createElement("div");
+              const p3 = document.createElement("p");
+              const p4 = document.createElement("p");
+              const p5 = document.createElement("p");
+              const p6 = document.createElement("p");
+              const cap = document.createElement("p");
+              const details = document.createElement("details")
+              const summary = document.createElement("summary")
+              details.classList.add('dets');
+              
+              summary.textContent = "Show More";
+              // const distext = document.createElement("p");
+              // const hideText = document.createElement("p");
+              // distext.textContent = "Show more";
+              // distext.classList.add("more");
+              // distext.addEventListener("click", function (event) {
+              //   showMore(event);
+              // });
+
+//               distext.addEventListener("click", function showMore() {
+//   var hiddenElement = document.getElementsByClassName("dets");
+//   hiddenElement[0].style.display = "block";
+// })
+              
+              // hideText.textContent = "Hide content";
+              // hideText.classList.add("more");
+              // hideText.addEventListener("click", function (event) {
+              //   hideMore(event);
+              // });
+
+              
+//               distext.addEventListener("click", function hideMore() {
+//   var hiddenElement = document.getElementsByClassName("dets");
+//   hiddenElement.style.display = "none";
+// })
+
+              p1.textContent = `${item.e_id}`;
+              p1.classList.add("t1");
+              p2.textContent = `${item.e_name}`;
+              p2.classList.add("t2");
+              div.classList.add("cards");
+              div.setAttribute("name", `${item.type}`);
+              div.setAttribute("value", `${item.status}`);
+              cap.textContent = "Maximum Capacity :" + " " + `${item.Cap}`;
+              cap.classList.add("cap");
+              div.appendChild(p1);
+              div.appendChild(p2);
+              div.appendChild(cap);
+              // div.appendChild(distext);
+
+              p3.textContent = "Category : " + " " +`${item.Category}`;
+              p4.textContent = "Pre-requisites : " + " " +`${item.Prereq}`;
+              p5.textContent = "Credits : " + " " +`${item.Credits}`;
+              p6.textContent = "L_T_C : " + " " +`${item.L_T_C}`;
+
+              p3.classList.add("t3");
+              p4.classList.add("t4");
+              p5.classList.add("t5");
+              p6.classList.add("t6");
+
+              dets.classList.add("dets");
+              dets.appendChild(p3);
+              dets.appendChild(p4);
+              dets.appendChild(p5);
+              dets.appendChild(p6);
+              // dets.appendChild(hideText)
+
+              details.appendChild(dets);
+              div.append(details);
+
+              dataContainer.appendChild(div);
+
+              // deleteContainer.appendChild(div);
+              // updateContainer.appendChild(div);
+            });
+
+            console.log("Electives:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+      
+
+      
+      
+        async function fetchDataAndDisplay1() {
+            fetch('/get_offered_electives')
+                .then(response => response.json())
+                .then(data => {
+                    // const dataContainer = document.getElementById('dataContainer');
+                    const deleteContainer = document.getElementById('deleteContainer');
+                    // const updateContainer = document.getElementById('updateContainer');
+
+
+                    data.forEach((item, index) => {
+                        const div1 = document.createElement('div');
+                        const div2 = document.createElement('div');
+                        const p1 = document.createElement('p');
+                        const p2 = document.createElement('p');
+                        const p3 = document.createElement('p');
+                        const button = document.createElement('button');
+                        
+                      
+                        p1.textContent = `${item.e_id}`;
+                        p1.classList.add('t1');
+                        p2.textContent = `${item.e_name}`;
+                        p2.classList.add('t2');
+                        p3.textContent = `${item.status}`;
+                        p3.classList.add('t3');
+                        div1.classList.add('cards');
+                        div1.appendChild(p1);
+                        div1.appendChild(p2);
+                        div1.appendChild(p3);
+                        div2.classList.add('bt');
+                      
+                      
+                        if (p3.textContent == "Offered") {
+                          button.textContent = "Remove";
+                        }
+                        else if (p3.textContent == "Not_Offered") {
+                          button.textContent = "Offer";
+                        }
+                      
+    
+        button.dataset.t1Value = p1.textContent; // Store the value in a custom data attribute
+        button.addEventListener('click', getDetails);
+                        
+                        div2.appendChild(button);
+                                        
+                        // dataContainer.appendChild(div);
+                        
+                        div1.appendChild(div2);  
+                        deleteContainer.appendChild(div1);
+                        
+                        // updateContainer.appendChild(div);
+                       
+                    });
+
+                    console.log('Delete:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+      
+async function getDetails(event) {
+  var button = event.target;
+  const val = button.dataset.t1Value;
+  const id = {e_id: val};
+  if (button.textContent == "Remove") {
+    var Status = "Not_Offered";
+  }
+  else if (button.textContent == "Offer") {
+   var Status = "Offered";
+  }
+  
+  const Nstatus ={ $set: {
+    status: Status
+  }};
+  
+  console.log(id);
+  console.log(Nstatus);
+  
+  
+  
+  
+  
+              const response = await fetch("./update_L", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ fid: id, nstatus: Nstatus })
+
+            })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Server response:', result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+
+
+
+            const data = await response.json()
+            console.log(data)
+  
+            
+}
+      
+      
+      async function fetchData() {
+            fetch('/get_offered_electives')
+                .then(response => response.json())
+                .then(data => {
+            const searchObject =  {
+                      search: data.map(item => ({
+                    _id: item._id,
+                    e_id: item.e_id,
+                    e_name: item.e_name,
+                    dept: item.dept,
+                    type: item.type,
+                    sem: item.sem,
+                    status: item.status,
+                    category: item.category,
+                    credit: item.credit,
+                    L_T_C: item.L_T_C,
+                    Prereq: item.Prereq
+                }))
+            };
+
+
+            console.log('JSON Object:', searchObject);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+      
+      
+
+      
+
+      
+      
+       async function fetchDataAndDisplay2() {
+            fetch('/get_offered_electives')
+                .then(response => response.json())
+                .then(data => {
+                    // const dataContainer = document.getElementById('dataContainer');
+                    // const deleteContainer = document.getElementById('deleteContainer');
+                    const updateContainer = document.getElementById('updateContainer');
+
+
+                    data.forEach((item, index) => {
+                        const div = document.createElement('div');
+                        const p1 = document.createElement('p');
+                        const p2 = document.createElement('p');
+                        p1.textContent = `${item.e_id}`;
+                        p1.classList.add('t1');
+                        p2.textContent = `${item.e_name}`;
+                        p2.classList.add('t2');
+                        div.classList.add('cards');
+                        div.appendChild(p1);
+                        div.appendChild(p2);
+                                        
+                        // dataContainer.appendChild(div);
+                        // deleteContainer.appendChild(div);
+                        updateContainer.appendChild(div);
+                       
+                    });
+
+                    console.log('Update:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+        
+
+
+
+        async function offerElective(dialogId) {
+
+            var ofe = document.getElementById('ofe');
+
+            const ccValue = ofe.querySelector('#cc').value;
+            const nValue = ofe.querySelector('#n').value;
+            const dValue = ofe.querySelector('#d').value;
+            const typeValue = ofe.querySelector('#type').value;
+            const semValue = parseInt(ofe.querySelector('#sem').value);
+            const statusValue = ofe.querySelector('#status').value;
+            const catValue = ofe.querySelector('#cat').value;
+            const creValue = parseInt(ofe.querySelector('#cre').value);
+            const ltcValue = ofe.querySelector('#L_T_C').value;
+
+
+            ccValue.value = '';
+            nValue.value = '';
+            dValue.value = '';
+            typeValue.value = '';
+            semValue.value = '';
+            statusValue.value = '';
+            catValue.value = '';
+            creValue.value = '';
+            ltcValue.value = '';
+
+
+
+
+            const x = document.getElementsByClassName(dialogId)
+            console.log(x)
+            x[0].style.display = "none";
+            const y = document.getElementsByClassName("blur")
+            y[0].style.display = "none";
+
+
+            const inputVal = {
+                e_id: ccValue,
+                e_name: nValue,
+                dept: dValue,
+                type: typeValue,
+                sem: semValue,
+                status: statusValue,
+                category: catValue,
+                credit: creValue,
+                L_T_C: ltcValue
+            };
+
+
+
+
+
+            console.log(inputVal);
+
+
+         const response = await fetch("./add_L", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(inputVal)
+
+            })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Server response:', result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+
+
+
+        }
+      
+      
+      function sear_clr(){
+    var rows = document.querySelectorAll('.cards');
+    var to_search = document.getElementById("search_text").value
+    for(var i=0;i<rows.length;i++){
+      rows[i].style.backgroundColor = "#292936";
+      
+    }
+  }
+  
+//   function sear_clr2(){
+//     var rows = document.querySelectorAll('.row_for_search2');
+//     var to_search = document.getElementById("search_text").value
+//     for(var i=0;i<rows.length;i++){
+//       rows[i].style.color = "#ececec";
+      
+//     }
+//   }
+  
+  function sear(){
+    sear_clr()
+    // sear_clr2()
+    var rows = document.querySelectorAll('.cards');
+    // var rows2 = document.querySelectorAll('.row_for_search2');
+    var to_search = document.getElementById("search_text").value
+    var found = 0;
+    if(to_search==""){
+    }
+    else{
+      for(var i=0;i<rows.length;i++){
+        // console.log(rows[i].innerHTML.replaceAll("&amp;","&")=="Neural Networks & Deep Learning")
+        var fixed_text = rows[i].innerHTML.replaceAll("&amp;","&");
+        console.log(fixed_text)
+        console.log(to_search)
+        console.log(fixed_text.toLowerCase().includes(to_search.toLowerCase()))
+        if(fixed_text.toLowerCase().includes(to_search.toLowerCase())){
+          rows[i].style.backgroundColor = "#7568d0";
+          rows[i].scrollIntoView();
+          found = 1
+        }
+      }
+      // for(var i=0;i<rows2.length;i++){
+      //   // console.log(rows[i].innerHTML.replaceAll("&amp;","&")=="Neural Networks & Deep Learning")
+      //   var fixed_text = rows2[i].innerHTML.replaceAll("&amp;","&");
+      //   console.log(fixed_text)
+      //   console.log(to_search)
+      //   console.log(fixed_text.toLowerCase().includes(to_search.toLowerCase()))
+      //   if(fixed_text.toLowerCase().includes(to_search.toLowerCase())){
+      //     rows2[i].style.color = "#8c81d0";
+      //     rows2[i].scrollIntoView();
+      //     found = 1
+      //   }
+      // }
+      if(found==0){
+        alert("No such Value found...")
+      }
+    }
+      
+  }
+      
+ 
+    function showOF(val){
+      sear_clr()
+      
+const rows = document.querySelectorAll('.cards');
+
+rows.forEach((card) => {
+  const name = card.getAttribute('name');
+  const value = card.getAttribute('value');
+  console.log('Card Name:', name);
+  console.log('Card Value:', value);
+});
+      console.log(rows)
+      var to_search = val;
+      var found = 0;
+    if(to_search==""){
+    }
+    else{
+      for(var i=0;i<rows.length;i++){
+//         // console.log(rows[i].innerHTML.replaceAll("&amp;","&")=="Neural Networks & Deep Learning")
+        if (rows[i].getAttribute('value') == null) {
+          
+        }
+        else {
+        var fixed_text = rows[i].getAttribute('value')
+        console.log(fixed_text)
+        console.log(fixed_text)
+        console.log(to_search)
+        console.log(fixed_text.toLowerCase().includes(to_search.toLowerCase()))
+        if(fixed_text.includes(to_search)){
+          rows[i].style.backgroundColor = "#7568d0";
+          rows[i].scrollIntoView();
+          found = 1
+        }
+        }
+
+      }
+
+//       if(found==0){
+//         alert("No such Value found...")
+//       }
+    }
+    }
+      
+      
+          function showTE(val){
+      sear_clr()
+      
+const rows = document.querySelectorAll('.cards');
+
+rows.forEach((card) => {
+  const name = card.getAttribute('name');
+  const value = card.getAttribute('value');
+  console.log('Card Name:', name);
+  console.log('Card Value:', value);
+});
+      console.log(rows)
+      var to_search = val;
+      var found = 0;
+    if(to_search==""){
+    }
+    else{
+      for(var i=0;i<rows.length;i++){
+//         // console.log(rows[i].innerHTML.replaceAll("&amp;","&")=="Neural Networks & Deep Learning")
+        if (rows[i].getAttribute('value') == null) {
+          
+        }
+        else {
+        var fixed_text = rows[i].getAttribute('name')
+        console.log(fixed_text)
+        console.log(fixed_text)
+        console.log(to_search)
+        console.log(fixed_text.toLowerCase().includes(to_search.toLowerCase()))
+        if(fixed_text.includes(to_search)){
+          rows[i].style.backgroundColor = "#7568d0";
+          rows[i].scrollIntoView();
+          found = 1
+        }
+        }
+
+      }
+
+//       if(found==0){
+//         alert("No such Value found...")
+//       }
+    }
+    }
+      
+      
+      
+      
+      
+
+
+// fetch(`/users/${userId}`, {
+//   method: 'DELETE'
+// })
+//   .then(response => {
+//     if (response.ok) {
+//       console.log('User deleted successfully');
+//     } else if (response.status === 404) {
+//       console.log('User not found');
+//     } else {
+//       console.error('Error deleting user:', response.statusText);
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Error deleting user:', error);
+//   });
+      
+      
+ 
+
+    </script>
+
+
+
+</body>
+
+</html>

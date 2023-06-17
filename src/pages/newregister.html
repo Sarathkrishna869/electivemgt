@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elective Management System - Create Account</title>
+    <style>
+        select {
+          display: block;
+          margin-bottom: 10px;
+          width: 200px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+
+        select option[disabled] {
+          color: #999;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/pattern.png?v=1684864343130");
+            background-size:cover;
+            padding:5px;
+  
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .form-container {
+            max-width:60%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #292836;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            color: white;
+            box-shadow: 0 0 30px black;
+          
+        }
+
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .img {
+        width: 90%;
+        height: 100%;
+    }
+
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .textbox {
+            margin-top: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+
+  
+    function showDropDowns(semester) {
+        var dropDowns = document.getElementsByClassName('dropdown');
+        
+        for (var i = 0; i < dropDowns.length; i++) {
+            if (dropDowns[i].getAttribute('data-semester') === semester && dropDowns[i].style.display !== 'block') {
+                dropDowns[i].style.display = 'block';
+            } else {
+                dropDowns[i].style.display = 'none';
+            }
+        }
+        
+        // Reset the selected options in the dropdowns
+        var dropdownOptions = document.getElementsByClassName('dropdown-option');
+        
+        for (var j = 0; j < dropdownOptions.length; j++) {
+            dropdownOptions[j].style.display = 'block';
+            dropdownOptions[j].disabled = false;
+        }
+    }
+
+    function disableSelectedOptions(selectElement) {
+        var selectedOption = selectElement.value;
+        var allOptions = document.getElementsByClassName('dropdown-option');
+        
+        for (var i = 0; i < allOptions.length; i++) {
+            if (allOptions[i].value === selectedOption) {
+                allOptions[i].style.display = 'none';
+                allOptions[i].disabled = true;
+            }
+        }
+    }
+      
+      
+// function Submit(){
+//   var ofe = document.getElementById('registrationForm');
+
+//   const userValue = ofe.querySelector('#username').value;
+//   const passwordValue = ofe.querySelector('#password').value;
+//   const emailValue = ofe.querySelector('#sem').value;
+//   let typeValue;
+//   const studentRadio = ofe.querySelector('#student');
+//   const professorRadio = ofe.querySelector('#professor');
+
+//   if (studentRadio.checked) {
+//     typeValue = studentRadio.value;
+//   } else if (professorRadio.checked) {
+//     typeValue = professorRadio.value;
+//   } else {
+//     typeValue = studentRadio.value;
+//   }
+
+
+//   // userValue.value = '';
+//   // passwordValue.value = '';
+//   // typeValue.value = '';
+//   // emailValue.value = '';
+
+
+
+
+//   const inputVal = {
+//       username: userValue,
+//       password: passValue,
+//       type: typeValue,
+//       email: emailValue
+//   };
+
+
+
+//   console.log(inputVal);
+
+
+//   const response = await fetch("./add_r", {
+//       method: "POST",
+//       headers: {
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(inputVal)
+
+//   })
+//       .then(response => response.json())
+//       .then(result => {
+//           console.log('Server response:', result);
+//       })
+//       .catch(error => {
+//           console.error('Error:', error);
+//       });
+
+
+
+
+//   const data = await response.json()
+//   console.log(data)
+//   }
+//         }
+
+
+      
+//         function showTextBox(semester) {
+//             var textBoxes = document.getElementsByClassName('textbox');
+            
+//             for (var i = 0; i < textBoxes.length; i++) {
+//                 if (textBoxes[i].getAttribute('data-semester') === semester && textBoxes[i].style.display !== 'block') {
+//                     textBoxes[i].style.display = 'block';
+//                 } else {
+//                     textBoxes[i].style.display = 'none';
+//                 }
+//             }
+//         }
+
+      
+//         document.getElementById('registrationForm').addEventListener('submit', function(e) {
+//             var emailInput = document.getElementById('email');
+//             var emailError = document.getElementById('emailError');
+//             var emailValue = emailInput.value.trim();
+            
+//             // Perform email validation (you can use regular expressions for more complex validation)
+//             if (!emailValue.endsWith('@example.com')) {
+//                 e.preventDefault(); // Prevent form submission
+//                 emailError.textContent = 'Please enter a valid example.com email address.';
+//                 emailInput.focus();
+//             } else {
+//                 emailError.textContent = ''; // Clear the error message
+//             }
+//         });
+    </script>
+</head>
+<body>
+    
+    <div class="container form-container">
+        <form id="registrationForm" method="post">
+            <h1 style="color:white;">Create an Account</h1>
+              <div style="z-index:1;" class="image-container" >
+      
+      <img src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/lol.png?v=1685033612808" class ="img" alt="Vector Image">
+      
+    </div>
+            
+            <label for="accounttype">Account type:</label>
+            <br>
+            <label for="student">Student</label>
+            <input type="radio" id="student" name="accountType" value="stud">
+            <label for="professor">Professor</label>
+            <input type="radio" id="professor" name="accountType" value="fac">
+      
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            
+            <label for="registrationNumber">Registration Number:</label>
+            <input type="text" id="registrationNumber" name="registrationNumber" pattern="CB\.[A-Z]{2}\.U[0-9]{1}[A-Z]{3}[0-9]{5}" required><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <span id="emailError" class="error-message"></span><br>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+            
+            <label for="semester">Semester:</label>
+            <br>
+
+<input type="radio" id="semester4" name="semester" value="semester4">
+<label for="semester4">semester4</label><br>
+<input type="radio" id="semester5" name="semester" value="semester5" onclick="showDropDowns('semester5')">
+<label for="semester5">semester5</label><br>
+<div class="dropdown" id="dropdownBox1" data-semester="semester5" style="display: none;">
+    <label for="select1">Electives Chosen in 4th Semester</label>
+    <select id="select1" name="select1" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox2" data-semester="semester5" style="display: none;">
+    <label for="select2">Electives Chosen in 5th Semester</label>
+    <select id="select2" name="select2" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox3" data-semester="semester5" style="display: none;">
+    <label for="select3">Electives Chosen in 6th Semester</label>
+    <select id="select3" name="select3" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox4" data-semester="semester5" style="display: none;">
+    <label for="select4">Electives Chosen in 7th Semester</label>
+    <select id="select4" name="select4" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<input type="radio" id="semester6" name="semester" value="semester6" onclick="showDropDowns('semester6')">
+<label for="semester6">semester6</label><br>
+<div class="dropdown" id="dropdownBox5" data-semester="semester6" style="display: none;">
+    <label for="select5">Electives Chosen in 5th Semester</label>
+    <select id="select5" name="select5" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox6" data-semester="semester6" style="display: none;">
+    <label for="select6">Electives Chosen in 5th Semester</label>
+    <select id="select6" name="select6" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox7" data-semester="semester6" style="display: none;">
+    <label for="select7">Electives Chosen in 5th Semester</label>
+    <select id="select7" name="select7" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox8" data-semester="semester6" style="display: none;">
+    <label for="select8">Electives Chosen in 5th Semester</label>
+    <select id="select8" name="select8" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<!-- Repeat the above code for semester7 and semester8 with appropriate IDs and data-semester values -->
+<input type="radio" id="semester7" name="semester" value="semester7" onclick="showDropDowns('semester7')">
+<label for="semester7">semester7</label><br>
+<!-- Dropdown boxes for semester7 -->
+<div class="dropdown" id="dropdownBox9" data-semester="semester7" style="display: none;">
+    <label for="select9">Electives Chosen in 6th Semester</label>
+    <select id="select9" name="select9" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox10" data-semester="semester7" style="display: none;">
+    <label for="select10">Electives Chosen in 6th Semester</label>
+    <select id="select10" name="select10" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox11" data-semester="semester7" style="display: none;">
+    <label for="select11">Electives Chosen in 6th Semester</label>
+    <select id="select11" name="select11" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox12" data-semester="semester7" style="display: none;">
+    <label for="select12">Electives Chosen in 6th Semester</label>
+    <select id="select12" name="select12" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+
+<input type="radio" id="semester8" name="semester" value="semester8" onclick="showDropDowns('semester8')">
+<label for="semester8">semester8</label><br>
+<div class="dropdown" id="dropdownBox13" data-semester="semester8" style="display: none;">
+    <label for="select13">Electives Chosen in 7th Semester</label>
+    <select id="select13" name="select13" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox14" data-semester="semester8" style="display: none;">
+    <label for="select14">Electives Chosen in 7th Semester</label>
+    <select id="select14" name="select14" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox15" data-semester="semester8" style="display: none;">
+    <label for="select15">Electives Chosen in 7th Semester</label>
+    <select id="select15" name="select15" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+<div class="dropdown" id="dropdownBox16" data-semester="semester8" style="display: none;">
+    <label for="select16">Electives Chosen in 7th Semester</label>
+    <select id="select16" name="select16" onchange="disableSelectedOptions(this)">
+        <option class="dropdown-option" value="default">Select an option</option>
+        <option class="dropdown-option" value="19CSE303">19CSE303</option>
+        <option class="dropdown-option" value="19CSE102">19CSE102</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+        <option class="dropdown-option" value="19CSE305">19CSE305</option>
+        <option class="dropdown-option" value="19MAT205">19MAT205</option>
+        <option class="dropdown-option" value="19MAT112">19MAT112</option>
+        <option class="dropdown-option" value="19MAT111">19MAT111</option>
+        <option class="dropdown-option" value="19MAT115">19MAT115</option>
+    </select>
+</div>
+          <input type="submit"  onclick="Submit()" value="Create Account">
+        </form>
+    </div>
+</body>
+</html>
+
