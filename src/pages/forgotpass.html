@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forgot Password</title>
+  <link rel="stylesheet" type="text/css" href="/css/style(fp).css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Forgot Password</h1>
+    <div class="val">
+        <form id="forgotPasswordForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Reset Password" class="reset">
+            </div>
+          </form>
+    </div>
+    <div class="otp">
+        <form id ="otp">
+            <div class="form-group">
+                <label for="number">OTP</label>
+                <input type="number" id="num" name="number" maxlength="6"> 
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="reset">
+            </div>
+        </form>
+    </div>
+
+    <div class="pass">
+        <form class="new">
+            <div class="form-group" onsubmit = "con(event)">
+                <label for="pass">Password:</label>
+                <input type="text" id="passw" name="pass"> 
+            </div>
+            <div class="form-group">
+                <label for="conp">Confirm Password:</label>
+                <input type="password" id="conpass" name="conp"> 
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="reset">
+            </div>
+        </form>
+    </div>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    document.querySelector(".otp").style.display = "none";
+    document.querySelector(".pass").style.display = "none";
+    
+    const err = document.querySelector('#message')
+    
+    document.getElementById("forgotPasswordForm").addEventListener("submit", async (e) => {
+          e.preventDefault();
+          err.innerHTML = ""
+          const email = document.getElementById("email").value;
+          localStorage.setItem("mail",JSON.stringify(email))
+          const response = await fetch("/checkEmail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
+
+          const { exists } = await response.json();
+          const messageElement = document.getElementById("message");
+
+          if (exists) {
+                          messageElement.innerHTML = "";
+                          messageElement.innerHTML = "OTP sent to Mail Successfully..."
+                          setTimeout(() => {
+                                messageElement.innerHTML = "";
+                                document.querySelector(".val").style.display = "none";
+                                document.querySelector(".otp").style.display = "block";
+                           }, 3000)
+            
+          } else {
+            messageElement.innerHTML = "Email not found";
+          }
+        });
+    
+    
+   document.getElementById("otp").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const mail = JSON.parse(localStorage.getItem("mail"));
+  err.innerHTML = "";
+  const otp = document.getElementById("num").value;
+  const response = await fetch("/verify_otp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ otp: otp, email: mail }),
+  });
+try {
+  const k = await response.json();
+  console.log(k.msg);
+  // rest of the code
+  
+  if (k.msg) {
+    
+    err.innerHTML = "";
+    err.innerHTML = "OTP Validated Successfully..";
+    setTimeout(() => {
+            err.innerHTML = "";
+            document.querySelector(".otp").style.display = "none";
+            document.querySelector(".pass").style.display = "block";
+          }, 3000)
+  } 
+  else {
+    err.innerHTML = "Invalid OTP";
+  }
+  
+} catch (error) {
+  console.error(error);
+}
+     
+});
+    
+    
+    document.querySelector(".new").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = JSON.parse(localStorage.getItem("mail"));
+        const newPassword = document.getElementById("passw").value;
+        const confirmPassword = document.getElementById("conpass").value;
+        const messageElement = document.getElementById("message");
+      
+        var lowerCaseLetters = /[a-z]/g;
+    var upperCaseLetters = /[A-Z]/g;
+    var numbers = /[0-9]/g;
+    var spl = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+    
+        err.innerHTML = "";
+
+        if (newPassword.length == 0 || confirmPassword.length == 0) {
+          messageElement.innerHTML = "Fields cannot be Empty!";
+          return;
+        }
+      
+        else if (newPassword.length < 8) {
+          messageElement.innerHTML = "Password should be atleast 8 characters.";
+          return;
+        }
+      
+        else if (!newPassword.match(numbers)) {
+          messageElement.innerHTML = "Password should have atleast 1 number.";
+          return;
+        }
+      
+        else if (!newPassword.match(lowerCaseLetters)) {
+          messageElement.innerHTML = "Password should have atleast 1 Lower Case Character.";
+          return;
+        }
+      
+        else if (!newPassword.match(upperCaseLetters)) {
+          messageElement.innerHTML = "Password should have atleast 1 Upper Case Character.";
+          return;
+        }
+      
+        else if (!newPassword.match(spl)) {
+          messageElement.innerHTML = "Password should have atleast 1 Special Character.";
+          return;
+        }
+      
+        else if (newPassword !== confirmPassword) {
+          messageElement.innerHTML = "Passwords don't match!";
+          return;
+        }
+      
+
+        const response = await fetch("/update_password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, newPassword }),
+        });
+
+        const result = await response.json();
+
+        if (result.msg) {
+          messageElement.innerHTML = `Password updated successfully! <br> Redirecting to Login Page.....`;
+          // Redirect to login page after 3 seconds
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 3000);
+        } else {
+          messageElement.innerHTML = "An error occurred while updating the password.";
+        }
+});
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+
+* {
+    margin: 0;
+    padding: 0;
+}
+    
+/* Styling the dropdown */
+select#sem {
+  width: 200px; /* Set the width of the dropdown */
+  padding: 8px; /* Add some padding around the dropdown */
+  font-size: 16px; /* Set the font size */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 4px; /* Add some border radius */
+  background-color: #fff; /* Set the background color */
+  color: #333; /* Set the text color */
+}
+
+/* Styling the options */
+select#sem option {
+  padding: 8px; /* Add some padding to each option */
+  background-color: #fff; /* Set the background color */
+  color: #333; /* Set the text color */
+}
+
+/* Styling the selected option */
+select#sem option:checked {
+  background-color: #e0e0e0; /* Set the background color of the selected option */
+  font-weight: bold; /* Make the selected option bold */
+}
+
+
+body {
+    background-color: #292836;
+    background-image: url("https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/pattern.png?v=1684864343130");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.container {
+  background-color: #292836;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 80px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3%;
+  box-shadow: 0 0 30px black;
+}
+    
+    .form-group {
+      margin-left: 10%;
+      margin-top: 5%;
+}
+
+h1 {
+  text-align: center;
+  color: #333333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+    span{
+      color:white;
+      font-size: 18px;
+      margin-left: 3%;
+    }
+    
+    .s,.f {
+    margin-left: 30%;
+    margin-top: 3%;
+}
+    
+    .course {
+        margin-left: 15%;
+    }
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 85%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  width: 50%;
+  height: 50px;
+  padding: 10px;
+  background-color: #6a5cd0;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 20%;
+  box-shadow: 0 0 30px black;
+}
+    
+input[type="submit"]:hover{
+    background-color: white;
+    color: blue;
+    transition: 1s;
+  }
+
+#message {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
+
+    
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color:white;text-shadow:10px 10px 10px black;">ElectiveMGT  </h1>
+    <form id="registerForm" onsubmit = "reg(event)" >
+      <center><h2 style="margin-top: 2.5%; ">
+        Create an Account
+      </h2></center>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label >Type</label>
+          
+        <div class="s">
+          <input type="radio" id="stud" name="type" value="stud" onchange = "func()" ><span>  Student</span>  
+      </div>
+        <div class="f">
+        <input type="radio" id="fac" name="type" value="fac" onchange = "func()"><span>   Faculty</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pnum">Phone Number</label>
+        <input type="text" id="pnum" name="pnum" required>
+      </div>
+
+      <div class="form-group">
+        <label for="rnum">Roll Number</label>
+        <input type="text" id="rnum" name="rnum" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sem">Semester</label>
+        <select id="sem" name="sem" onchange = "func()" required>
+            <option class="dropdown-option" value="default">Select an Option</option>
+            <option class="dropdown-option" value="4">semester 4</option>
+            <option class="dropdown-option" value="5">semester 5</option>
+            <option class="dropdown-option" value="6">semester 6</option>
+            <option class="dropdown-option" value="7">semester 7</option>
+            <option class="dropdown-option" value="8">semester 8</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dept">Department</label>
+        <input type="text" id="dept" name="dept" required>
+      </div>
+
+      <div class="form-group" id="pel">
+
+            <span style="margin:0;">Choose Previous Electives</span><br><br>
+            <div class="course" id="s4">
+              <p>SEMESTER - 4 </p>
+              <input type="checkbox" id="19MAT115" name="19MAT115" value="19MAT115">
+              <span for="19MAT115"> 19MAT115</span><br>
+              <input type="checkbox" id="19MAT112" name="19MAT112" value="19MAT112">
+              <span for="19MAT112"> 19MAT112</span><br>
+              <input type="checkbox" id="19MAT111" name="19MAT111" value="19MAT111">
+              <span for="19MAT111"> 19MAT111</span><br>
+              <input type="checkbox" id="19MAT205" name="19MAT205" value="19MAT205">
+              <span for="19MAT205"> 19MAT205</span><br>
+              <input type="checkbox" id="19EEE205" name="19EEE205" value="19EEE205">
+              <span for="19EEE205"> 19EEE205</span><br>
+              <input type="checkbox" id="19MEE205" name="19MEE205" value="19MEE205">
+              <span for="19MEE205"> 19MEE205</span><br>
+              <input type="checkbox" id="19CSE102" name="19CSE102" value="19CSE102">
+              <span for="19CSE102"> 19CSE102</span><br>
+            </div>
+            <div class="course" id="s5">
+              <p>SEMESTER - 5 </p>
+              <input type="checkbox" id="19CSE304" name="19CSE304" value="19CSE304">
+              <span for="19CSE304"> 19CSE304</span><br>
+              <input type="checkbox" id="19MAT113" name="19MAT113" value="19MAT113">
+              <span for="19MAT113"> 19MAT113</span><br>
+              <input type="checkbox" id="19MAT203" name="19MAT203" value="19MAT203">
+              <span for="19MAT203"> 19MAT203</span><br>
+              <input type="checkbox" id="19PHY205" name="19PHY205" value="19PHY205">
+              <span for="19PHY205"> 19PHY205</span><br>
+              <input type="checkbox" id="19MNG205" name="19MNG205" value="19MNG205">
+              <span for="19MNG205"> 19MNG205</span><br>
+              <input type="checkbox" id="19CSE303" name="19CSE303" value="19CSE303">
+              <span for="19CSE303"> 19CSE303</span><br>
+              <input type="checkbox" id="19CSE305" name="19CSE305" value="19CSE305">
+              <span for="19CSE305"> 19CSE305</span><br>
+            </div>
+            <div class="course" id="s6">
+              <p>SEMESTER - 6 </p>
+              <input type="checkbox" id="19CSE308" name="19CSE308" value="19CSE308">
+              <span for="19CSE308"> 19CSE308</span><br>
+              <input type="checkbox" id="19MAT125" name="19MAT125" value="19MAT125">
+              <span for="19MAT125"> 19MAT125</span><br>
+              <input type="checkbox" id="19CHE208" name="19CHE208" value="19CHE208">
+              <span for="19CHE208"> 19CHE208</span><br>
+              <input type="checkbox" id="19CSE205" name="19CSE205" value="19CSE205">
+              <span for="19CSE205"> 19CSE205</span><br>
+              <input type="checkbox" id="19EEE201" name="19EEE201" value="19EEE201">
+              <span for="19EEE201"> 19EEE201</span><br>
+            </div>
+            <div class="course" id="s7">
+              <p>SEMESTER - 7 </p>
+              <input type="checkbox" id="19EEE303" name="19EEE303" value="19EEE303">
+              <span for="19EEE303"> 19EEE303</span><br>
+              <input type="checkbox" id="19CSE115" name="19CSE115" value="19CSE115">
+              <span for="19CSE115"> 19MAT115</span><br>
+              <input type="checkbox" id="19PHY105" name="19PHY105" value="19HY105">
+              <span for="19PHY105"> 19PHY105</span><br>
+              <input type="checkbox" id="19CHE205" name="19CHE205" value="19CHE205">
+              <span for="19CHE205"> 19CHE205</span><br>
+              <input type="checkbox" id="19INT205" name="19INT205" value="19INT205">
+              <span for="19INT205"> 19INT205</span><br>
+            </div>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Register" id = "sub" >
+      </div>
+    </form>
+    <p id="message"></p>
+  </div>
+<br><br><br>
+  <script>
+  
+  const name = document.getElementById("name");
+  const uname = document.getElementById("username");
+    const email = document.getElementById("email");
+    const pass = document.getElementById("password");
+    const phno = document.getElementById("pnum");
+    const rno = document.getElementById("rnum");
+  const stud = document.getElementById("stud");
+    const dept = document.getElementById("dept");
+  const fac = document.getElementById("fac");
+  const sem = document.getElementById("sem");
+  const cr1 = document.getElementById("19CSE303")
+  const cr2 = document.getElementById("19MAT115")
+  const cr3 = document.getElementById("19MAT205")
+  const cr4 = document.getElementById("19EEE205")
+  const cr5 = document.getElementById("19MEE205")
+  const cr6 = document.getElementById("19CSE304")
+  const cr7 = document.getElementById("19MAT113")
+  const cr8 = document.getElementById("19MAT203")
+  const cr9 = document.getElementById("19PHY205")
+  const cr10 = document.getElementById("19MNG205")
+  const cr11 = document.getElementById("19CSE308")
+  const cr12 = document.getElementById("19MAT125")
+  const cr13 = document.getElementById("19CHE208")
+  const cr14 = document.getElementById("19CSE205")
+  const cr15 = document.getElementById("19EEE201")
+  const cr16 = document.getElementById("19EEE303")
+  const cr17 = document.getElementById("19CSE115")
+  const cr18 = document.getElementById("19PHY105")
+  const cr19 = document.getElementById("19CHE205")
+  const cr20 = document.getElementById("19INT205")
+  const cr21 = document.getElementById("19CSE102")
+  const cr22 = document.getElementById("19CSE305")
+  const cr23 = document.getElementById("19MAT112")
+  const cr24 = document.getElementById("19MAT111")
+  const err = document.getElementById("message")
+  
+  const users = JSON.parse(localStorage.getItem("Users")) 
+  
+  const pel = document.getElementById("pel")
+  const s4 = document.getElementById("s4")
+  const s5 = document.getElementById("s5")
+  const s6 = document.getElementById("s6")
+  const s7 = document.getElementById("s7")
+  pel.style.display = "none"
+  s4.style.display = "none"
+  s5.style.display = "none"
+  s6.style.display = "none"
+  s7.style.display = "none"
+    
+  function func() {
+      if(stud.checked == false && fac.checked == false){
+            alert("Choose Type First....")
+            sem.value = "default"
+            return
+      }
+
+      if (fac.checked == true){
+            pel.style.display = "none"
+            s4.style.display = "none"
+            s5.style.display = "none"
+            s6.style.display = "none"
+            s7.style.display = "none"
+      }
+
+      if(sem.value == 5 && stud.checked == true){
+          pel.style.display = "block"
+          s4.style.display = "block"
+          s5.style.display = "none"
+          s6.style.display = "none"
+          s7.style.display = "none"
+      }
+      else if(sem.value == 6 && stud.checked == true){
+          pel.style.display = "block"
+          s4.style.display = "block"
+          s5.style.display = "block"
+          s6.style.display = "none"
+          s7.style.display = "none"
+      }
+      else if(sem.value == 7 && stud.checked == true){
+          pel.style.display = "block"
+          s4.style.display = "block"
+          s5.style.display = "block"
+          s6.style.display = "block"
+          s7.style.display = "none"
+      }
+      else if(sem.value == 8 && stud.checked == true){
+          pel.style.display = "block"
+          s4.style.display = "block"
+          s5.style.display = "block"
+          s6.style.display = "block"
+          s7.style.display = "block"
+      }
+}
+  async function fetch_vals(){
+    response = await fetch("./log_me");
+    data = await response.json();
+    obj = data;
+    localStorage.setItem('Users', JSON.stringify(obj));
+  }
+
+  fetch_vals();
+  const user = JSON.parse(localStorage.getItem("Users"));
+  
+  async function reg(e) {
+    
+        
+    e.preventDefault()
+    
+    
+    console.log(user)
+    
+    err.innerHTML = ""
+    
+    var lowerCaseLetters = /[a-z]/g;
+    var upperCaseLetters = /[A-Z]/g;
+    var numbers = /[0-9]/g;
+    var spl = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+    const mailel = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  
+    if (phno.value.length < 10) {
+      err.innerHTML += "Invalid Phone Number.."
+      return
+    }
+    
+    if (!email.value.match(mailel)){
+        err.innerHTML += "Invalid E-Mail.."
+        return
+    }
+    
+    if (pass.value.length < 8) {
+      err.innerHTML += "Password Should have atleast 8 characters.."
+      return
+    }
+    if (!pass.value.match(numbers)){
+      err.innerHTML += "Password Should have atleast 1 number.."
+      return
+    }
+
+    if (!pass.value.match(lowerCaseLetters)){
+      err.innerHTML += "Password Should have atleast 1 Lower Case Character.."
+      return
+    }
+
+    if (!pass.value.match(upperCaseLetters)){
+      err.innerHTML += "Password Should have atleast 1 Upper Case Character.."
+      return
+    }
+
+    if (!pass.value.match(spl)){
+      err.innerHTML += "Password Should have atleast 1 Special Character.."
+      return
+    }
+    
+    for (let i=0; i<user.length; i++) {
+        if (uname.value == user[i].username ) {
+            err.innerHTML += "Username Already Exists.."
+            return
+      }
+      
+      if (email.value == user[i].email){
+            err.innerHTML += `Email already exists..<br>Try Logging In....`
+            return
+        }
+    }
+    
+    let cour = []
+    let type = ""
+
+    if (dept.value == "CSE") {
+        cour = ["19CSE313","19CSE314","19CSE311","19CSE312","19MAT208","19MAT114","19SSK305"]
+    }
+
+    else if (dept.value == "EEE") {
+        cour = ["19PHY312","19EEE313","19EEE305","19CSE314","19MAT208","19MAT114","19SSK305"]
+    }
+    
+    else if (dept.value == "MEE") {
+        cour = ["19PHY312","19MEE313","19MEE102","19CSE314","19MAT208","19MAT114","19SSK305"]
+    }
+
+    else if (dept.value == "INT") {
+        cour = ["19PHY312","19CHE313","19MEE102","19CSE314","19EEE208","19MAT114","19SSK305"]
+    }
+    
+    if (stud.checked == true){
+      type = "stud"
+      console.log("Stud")
+    }
+    else if (fac.checked == true){
+      type = "fac"
+      cour = []
+      console.log("Fac")
+    }
+    
+    if(cr1.checked == true){
+        cour.push(cr1.value)
+      }
+    if(cr2.checked == true){
+        cour.push(cr2.value)
+      }
+    if(cr3.checked == true){
+        cour.push(cr3.value)
+      }
+    if(cr4.checked == true){
+        cour.push(cr4.value)
+      }
+    if(cr5.checked == true){
+        cour.push(cr5.value)
+      }
+    if(cr6.checked == true){
+        cour.push(cr6.value)
+      }
+    if(cr7.checked == true){
+        cour.push(cr7.value)
+      }
+    if(cr8.checked == true){
+        cour.push(cr8.value)
+      }
+    if(cr9.checked == true){
+        cour.push(cr9.value)
+      }
+    if(cr10.checked == true){
+        cour.push(cr10.value)
+      }
+    if(cr11.checked == true){
+        cour.push(cr11.value)
+      }
+    if(cr12.checked == true){
+        cour.push(cr12.value)
+      }
+    if(cr13.checked == true){
+        cour.push(cr13.value)
+      }
+    if(cr14.checked == true){
+        cour.push(cr14.value)
+      }
+    if(cr15.checked == true){
+        cour.push(cr15.value)
+      }
+    if(cr16.checked == true){
+        cour.push(cr16.value)
+      }
+    if(cr17.checked == true){
+        cour.push(cr17.value)
+      }
+    if(cr18.checked == true){
+        cour.push(cr18.value)
+      }
+    if(cr19.checked == true){
+        cour.push(cr19.value)
+      }
+    if(cr20.checked == true){
+        cour.push(cr20.value)
+      }
+    if(cr21.checked == true){
+        cour.push(cr21.value)
+      }
+    if(cr22.checked == true){
+        cour.push(cr22.value)
+      }
+
+    if(cr23.checked == true){
+        cour.push(cr23.value)
+      }
+
+    if(cr24.checked == true){
+        cour.push(cr24.value)
+      }
+
+
+    const users = {
+      username: uname.value,
+      password: pass.value,
+      type: type,
+      email: email.value,
+      name: name.value,
+      phno: phno.value,
+      sem: parseInt(sem.value),
+      roll: rno.value,
+      dept: dept.value,
+      comp: cour
+
+    }
+    
+    console.log(users)
+
+    
+    const response = await fetch("./ad", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(users)
+
+            })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Server response:', result);
+                    err.innerHTML += "User Created Successfully."
+                        
+                    setTimeout(() => {
+                          window.location.href = "/";
+                    }, 3000);
+                        
+                  
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    err.innerHTML += "Error Updating Database"
+                });
+
+      const response1 = await fetch("/reg_m", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email.value, name: name.value, username: uname.value }),
+          });
+    
+    const resu = response1.json()
+    console.log(resu.msg)
+      
+  }
+  
+</script>
+</body>
+</html>

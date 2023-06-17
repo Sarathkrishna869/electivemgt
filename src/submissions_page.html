@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <title>Elective Selection</title>
+      <style>
+          html {
+            scroll-behavior: smooth;
+          }
+          body{
+            font-family: 'Poppins', sans-serif;
+            background-color:#1e1f25;
+            color:#ececec;
+            background-repeat: repeat;
+            background-image:url(https://cdn.glitch.global/4bc61e48-1f07-46ae-ab91-c1cee4b12763/pattern_exrtended2.png?v=1686758008220);
+            background-size: cover;
+          }
+          #only_tab_phone{
+            display:block;
+          }
+          .only_system{
+            display: none;
+          }
+          .full_on_tab_phone{
+            width:100%;
+          }
+          .left_panel{
+            box-shadow: 7px 7px 10px #100f0f44;   
+          }
+          .only_phone{
+            display:block;
+          }
+          .only_tab{
+            display: none;
+          }
+          .only_system_tab{
+            display:none;
+          }
+          #side_buttons{
+            width: 50%;
+          }
+          th{
+            font-size:large;
+          }
+          .only_phone_table{
+            display:inline-table;
+          }
+          .only_system_tab_table{
+            display:none;
+          }
+          .pradiobuttons, .radiobuttons:checked {
+            accent-color: #6a5cd0;
+          }
+          #final_reset_butt{
+            background-color:#6a5cd0;
+            color:#ececec;
+          }
+          #final_reset_butt:hover{
+            background-color:#ececec;
+            color:#6a5cd0;
+          }
+        
+          #final_reset_butt:disabled{
+            background-color:grey;
+            color:black;
+          }
+          #final_submit_butt{
+            background-color:#6a5cd0;
+            color:#ececec;
+          }
+          #final_submit_butt:hover{
+            background-color:#ececec;
+            color:#6a5cd0;
+          }
+        
+          #final_submit_butt:disabled{
+            background-color:grey;
+            color:black;
+          }
+          #search_button{
+            background-color:#6a5cd0;
+            color:#ececec;
+          }
+          #search_button:hover{
+            background-color:#ececec;
+            color:#6a5cd0;
+          }
+          h4{
+            text-align: left;
+            padding-left: 15%;
+            color: #484a51;
+            padding-top: 10px;
+          }
+          .background_box{
+            background-color: #6a5cd0;
+            padding:4% 45% 4% 12%;
+            margin-left: -12%;
+            border-radius: 10px;
+            color:#ececec
+          }
+          .background_box:hover{
+            background-color: #ececec;
+            color:#6a5cd0;
+          }
+          #Elective_List2:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+          .Elective_List3:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+          .Elective_List4:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+          @media screen and (min-width:768px){
+            #only_tab_phone{
+              display:block;
+            }
+            .only_system{
+              display: none;
+            }
+            .full_on_tab_phone{
+              width:100%;
+            }
+            .only_phone{
+              display:none;
+            }
+            .only_tab{
+              display: block;
+            }
+            .only_system_tab{
+              display:block;
+            }
+            #side_buttons{
+              width: 30%;
+            }
+            .only_phone_table{
+              display:none;
+            }
+            .only_system_tab_table{
+              display:inline-table;
+            }
+            h4{
+              text-align: left;
+              padding-left: 15%;
+              color: #484a51;
+              padding-top: 10px;
+            }
+            .background_box{
+              background-color: #6a5cd0;
+              padding:4% 45% 4% 12%;
+              margin-left: -12%;
+              border-radius: 10px;
+              color:#ececec
+            }
+            .background_box:hover{
+              background-color: #ececec;
+              color:#6a5cd0;
+            }
+            #Elective_List2:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+            .Elective_List3:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+            .Elective_List4:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+          }
+          @media screen and (min-width:1250px){
+            #only_tab_phone{
+              display:none;
+            }
+            .only_system{
+              display: block;
+            }
+            .only_tab{
+              display: none;
+            }
+            .full_on_tab_phone{
+              width:83%;
+            }
+            h4{
+              text-align: left;
+              padding-left: 15%;
+              color: #484a51;
+              padding-top: 10px;
+            }
+            .background_box{
+              background-color: #6a5cd0;
+              padding:4% 40% 4% 12%;
+              margin-left: -12%;
+              border-radius: 10px;
+              color:#ececec
+            }
+            .background_box:hover{
+              background-color: #ececec;
+              color:#6a5cd0;
+            }
+            #Elective_List:hover, #Elective_List2:hover{
+              color: #6a5cd0;
+              cursor:pointer;
+            }
+            .only_phone{
+              display:none;
+            }
+            .only_system_tab{
+              display:block;
+            }
+            #side_buttons{
+              width: 30%;
+            }
+            .only_phone_table{
+              display:none;
+            }
+            .only_system_tab_table{
+              display:inline-table;
+            }
+            #side_menu{
+              display:none;
+            }
+          }
+
+      </style>
+  </head>
+  <body>
+<!--     <center>
+        <h1 style="margin-top: 20px;">
+          ElectiveMGT
+        </h1>
+    </center> -->
+    <center>
+      <div style="width:100%;display: flex;">
+        <div style="width:17%;height:97vh;background-color:#1e1f25;display: flexbox;flex-direction: column;z-index: 5;border-radius:15px" class="only_system left_panel">
+          <div style="height: 68vh;">
+            <h1 style="margin-top: 20px;">
+              ElectiveMGT
+            </h1>
+            <h4 style="padding-top: 50px;">Home</h4>
+            <h4><span id="Elective_List" onclick="document.location.href = '/oes_admin';">Elective List</span></h4>
+            <h4><span class="Elective_List4" onclick="document.location.href = '/reg_admin';">Register</span></h4>
+            <h4><span class="background_box">Registerations</span></h4>
+            <h4><span class="Elective_List4" onclick="document.location.href = '/automatic_process';">Allotments</span></h4>
+            <h4><span class="Elective_List4" onclick="document.location.href = '/final_list';">Final List</span></h4>
+            
+          </div>
+          
+          
+<!--           <hr style="width:70%;margin-left: 12%;margin-top: -1%;border: 1px solid #3c3e44;"> -->
+          <div style="height: 20vh;margin-top: 7%;">
+<!--             <div style="height:5vh">
+              <div style="display:flexbox;flex-direction: row;">
+                <div style="width:23px;height:23px;background-color: rgb(253, 82, 94);float: left;border-radius: 5px;margin: 3% 0% 0% 3%;"></div>
+                <label style="float: left;margin: 3% 0% 0% 3%;color: #61636c;font-size:medium;">Professional Electives</label>
+              </div>
+            </div> -->
+<!--             <div style="height:5vh;margin-bottom: 5%;">
+              <div style="display:flexbox;flex-direction: row;">
+                <div style="width:23px;height:23px;background-color: rgb(255, 154, 143);float: left;border-radius: 5px;margin: 1% 0% 0% 3%;"></div>
+                <label style="float: left;margin: 1% 0% 0% 3%;color: #61636c;">Free Electives</label>
+              </div>
+            </div> -->
+            <hr style="width:70%;margin-left: 12%;margin-top: 32%;border: 1px solid #3c3e44;">
+            <div>
+              <div style="width:20%;float:left;height: 9vh;margin-left: 3%;">
+                <img style="width:95%;margin-top: 20%;" src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/profile_pic2.png?v=1684678481748">
+              </div>
+              <div style="height:10vh;margin-top: 7%;">
+                <label style="float:left;margin: 7% 0% 0% 3%;color: #ececec;font-size: 95%;" id="name_branch"><br>
+                  <label style="font-size: 85%;margin-top: 2%;float: left;color:rgb(111, 114, 127);padding-bottom:40px;" id="roll"></label>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="width:280px;height:67vh;background-color:#1e1f25;display: flexbox;flex-direction: column;z-index: 5;border-radius:15px;position:absolute;display:none;" id="side_menu">
+          <div style="height: 48vh;">
+            <h1 style="margin-top: 20px;">
+              ElectiveMGT
+            </h1>
+            <h4 style="padding-top: 50px;">Home</h4>
+            <h4><span id="Elective_List2" onclick="document.location.href = '/oes_admin';">Elective List</span></h4>
+            <h4><span class="Elective_List3" onclick="document.location.href = '/reg_admin';">Register</span></h4>
+            <h4><span class="background_box">Registerations</span></h4>
+            <h4><span class="Elective_List3" onclick="document.location.href = '/automatic_process';">Allotments</span></h4>
+            <h4><span class="Elective_List3" onclick="document.location.href = '/final_list';">Final List</span></h4>
+            
+          </div>
+        </div>
+        
+        <div style="height:97vh;z-index: 0;" class="full_on_tab_phone">
+          <div style="width: 100%;height:13vh;">
+            <!-- <div style="padding-top: 1%;padding-left: 2%;height: 11vh;background-color: #6a5cd0;;">
+              <label style="float: left;">select your respective semester and</label>
+              <br>
+              <label style="float: left;font-size: xx-large;">Regsiter For Electives here..</label>
+            </div>
+            <div style="width:30%;height:100%;background-color: aliceblue;float: right;margin-top: -2%;">
+
+            </div> -->
+            
+            <div style="width:50%;height: 100%;float: left;" class="only_phone">
+              <div style="width:70px;height: 70px;margin-top: 3%;float: left;margin-right: 5%;cursor:pointer" id="side_menu_sandw" onclick="open_side_menu()">
+                <img style="margin-top: 9%;margin-left: 5%;" width="70%" src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/menu.png?v=1684915097739">
+              </div>
+            </div>
+            <div style="width:70%;height: 100%;float: left;" class="only_tab">
+              <div style="width:70px;height: 70px;margin-top: 3%;float: left;margin-right: 5%;cursor:pointer"  onclick="open_side_menu()">
+                <img style="margin-top: -10px;margin-left: 5%;" width="70%" src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/menu.png?v=1684915097739">
+              </div>
+            </div>
+            <div style="width:70%;height: 100%;float: left;" class="only_system">
+              <div style="margin-top: 2%;margin-left: 2%;">
+                <label style="float: left;color: #bfbfbf;">Look at registrations from </label>
+                <br>
+                <label style="float: left;font-size: xx-large;">Students Semester-Wise..</label>
+              </div>
+            </div>
+            <div style="height: 100%;float: left;" id="side_buttons">
+              <div style="width:70px;height: 70px;margin-top: 3%;float: right;margin-right: 5%;">
+                <img style="margin-top: 14%;" width="50%" src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/out_1.png?v=1684914973439" onclick="redir_login()">
+              </div>
+              <div style="width:70px;height: 70px;margin-top: 3%;float: right;margin-right: 3%;">
+                <img style="margin-top: 14%;margin-left: 9%;" width="50%" src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/bell_1.png?v=1684915039443">
+              </div>
+            </div>
+          </div>
+          <div style="width: 100%;height:13vh;" class="only_phone">
+            <div style="width:100%;height: 100%;float: left;">
+              <div style="margin-top: 1%;margin-left: 2%;">
+                <label style="float: left;color: #bfbfbf;font-size:85%">Look at registrations from </label>
+                <br>
+                <label style="float: left;font-size: 150%;">Students Semester-Wise..</label>
+              </div>
+            </div>
+          </div>
+          <div style="width: 100%;height:13vh;" class="only_tab">
+            <div style="width:100%;height: 100%;float: left;">
+              <div style="margin-top: 1%;margin-left: 2%;">
+                <label style="float: left;color: #bfbfbf;">Look at registrations from </label>
+                <br>
+                <label style="float: left;font-size: 170%;">Students Semester-Wise..</label>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 1rem 0;height:15vh">
+            <div style="width: 92%;height:95%;margin: 0 auto 0 auto;border-radius:14px;box-shadow: 7px 7px 8px #100f0f44;background-color:rgba(41, 41, 54, 0.8);" id="reg_stat">
+              <label id="reg_stat_text" style="float:left;margin-left:30px;margin-top:15px;color:#c9c9c9"></label>
+              <br>
+              <br>
+              <label id="reg_stat_text2" style="font-size:xx-large;float:left;margin-left:45px;margin-top:-7.5px;font-weight:bold;color:#ececec;padding-bottom:20px;"></label>
+<!--               <img style="width:100%;height:100%;border-radius:14px" src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/try_2.png?v=1684684109003"> -->
+            </div>
+          </div>
+          <div style="width: 100%;">
+            <div style="width:98%;padding-top:20px;padding-bottom:20px" id="elecs">
+              <div style="width:95%;background-color:#292936;border-radius:12px;padding-bottom:24px;box-shadow: 7px 7px 8px #100f0f44;" id="elecs_sub_div">
+                <input type="text" id="search_text" placeholder="Enter Roll number here" style="width:70%;margin-top:20px;height:30px;border-radius:8px;background-color:#515465;border:0px;text-indent:20px;color:#ececec;" onchange="sear()">
+                <input type="button" value="Search" style="width:20%;height:33px;border-radius:8px;border:0px;font-weight:bold;" id="search_button" onclick="sear()">
+                <label style="width:20%;float:right;margin-top:23px;margin-right:5px" id="the_present_sem"></label>
+                <hr style="width:70%;margin-left: 12%;margin-top: 25px;border: 1px solid #51545d;">
+                
+                <div style="width:100%;" id="the_div_for_system">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+  </body>
+</html>
+<script>
+  var name = JSON.parse(localStorage.getItem('USERNAME'));
+  var branch = JSON.parse(localStorage.getItem('DEPARTMENT'));
+  var roll_num = JSON.parse(localStorage.getItem('ROLL_NUM'));
+  var curent_sem = 0
+  var student_courses = JSON.parse(localStorage.getItem('COURSES'));
+
+  function add_name_roll_dept(name, branch, roll_num){
+    document.getElementById("name_branch").innerHTML = name+' ('+branch+')<br><label style="font-size: 85%;margin-top: 2%;float: left;color:rgb(111, 114, 127);" id="roll">'+roll_num+'</label>'
+  }
+  
+  function open_side_menu(){
+    document.getElementById("side_menu").style.display = "block";
+  }
+  
+  document.addEventListener('mouseup', function(e) {
+    var container = document.getElementById('side_menu');
+    if (!container.contains(e.target)) {
+        container.style.display = 'none';
+    }
+    
+  });
+  
+  
+  async function fetch_regs(n){
+    response = await fetch("./get_regs?sem="+n);
+    data = await response.json();
+    obj = data;
+    localStorage.setItem('REGSS_'+n, JSON.stringify(obj));
+  }
+  
+  function redir_login(){
+    document.location.href = "/"
+  }
+  
+  
+  function status(){
+    if(status_val[0].status=="Active"){
+      document.getElementById("reg_stat").style.borderLeft = "9px solid rgb(112, 240, 112)";
+      document.getElementById("reg_stat_text").innerHTML = "Registration Status:";
+      document.getElementById("reg_stat_text2").innerHTML = "Active";
+      // document.getElementsByTagName("body")[0].style.backgroundColor = "rgb(209, 243, 209)";
+    }
+    else if(status_val[0].status=="Paused"){
+      document.getElementById("reg_stat").style.borderLeft = "9px solid rgb(244, 136, 63)";
+      document.getElementById("reg_stat_text").innerHTML = "Registration Status: ";
+      document.getElementById("reg_stat_text2").innerHTML = " Paused";
+      // document.getElementsByTagName("body")[0].style.backgroundColor = "rgb(255, 198, 161)";
+      // disable_all_radios();
+    }
+    else if(status_val[0].status=="Nope"){
+      document.getElementById("reg_stat").style.borderLeft = "9px solid #ececec"; 
+      document.getElementById("reg_stat_text").innerHTML = "Registration Status: ";
+      document.getElementById("reg_stat_text2").innerHTML = "Not Started";
+      // document.getElementsByTagName("body")[0].style.backgroundColor = "rgb(227, 209, 255)";
+      // disable_all_radios();
+
+    }
+    else if(status_val[0].status=="Ended"){
+      document.getElementById("reg_stat").style.borderLeft = "9px solid rgb(255, 79, 82)";
+      document.getElementById("reg_stat_text").innerHTML = "Registration Status: ";
+      document.getElementById("reg_stat_text2").innerHTML = "Ended!";
+      // document.getElementsByTagName("body")[0].style.backgroundColor = "rgb(255, 168, 169)";
+      // disable_all_radios();
+    }
+  }
+  
+  
+  function disable_submit(){
+    document.getElementById("final_submit_butt").disabled=true
+  }
+  
+  function enable_submit(){
+    document.getElementById("final_submit_butt").disabled=false
+  }
+  
+  
+  async function abcd(){
+      for(var i=5;i<8;i++){
+      await fetch_regs(i);
+
+    }
+  }
+  
+  abcd()
+  
+  // fetch_vals();
+  var status_val = JSON.parse(localStorage.getItem('STATUS'));
+  console.log(status_val[0])
+  
+  function sear_clr(){
+    var rows = document.querySelectorAll('.row_for_search');
+    var to_search = document.getElementById("search_text").value
+    for(var i=0;i<rows.length;i++){
+      rows[i].style.backgroundColor = "#292936";
+      
+    }
+  }
+  
+  function sear(){
+    sear_clr()
+    var rows = document.querySelectorAll('.row_for_search');
+    var to_search = document.getElementById("search_text").value
+    var found = 0;
+    if(to_search==""){
+    }
+    else{
+      for(var i=0;i<rows.length;i++){
+        // console.log(rows[i].innerHTML.replaceAll("&amp;","&")=="Neural Networks & Deep Learning")
+        var fixed_text = rows[i].innerHTML.replaceAll("&amp;","&");
+        console.log(fixed_text)
+        console.log(to_search)
+        console.log(fixed_text.toLowerCase().includes(to_search.toLowerCase()))
+        if(fixed_text.toLowerCase().includes(to_search.toLowerCase())){
+          rows[i].style.backgroundColor = "#7568d0";
+          rows[i].scrollIntoView();
+          found = 1
+        }
+      }
+      if(found==0){
+        alert("No such Record found...")
+      }
+    }
+      
+  }
+  
+  var status_val = JSON.parse(localStorage.getItem('STATUS'));
+  
+  
+  for(var i=5;i<8;i++){
+    
+    var sem_wise_regs = JSON.parse(localStorage.getItem('REGSS_'+i));
+    
+    document.getElementById("the_div_for_system").innerHTML += '<br><br><label style="width:20%;font-size:Larger;font-weight:bold;">Semester '+i+'</label>'+
+                                                                    '<table id="table_sem'+i+'" style="width:95%;font-size:small;text-align: center;margin-top:30px;border-collapse: separate;border-spacing: 0 1em;">'+
+                                                                      '<tr style="">'+
+                                                                      '<th style="width:40%;">Roll Number</th>'+
+                                                                      '<th id="one_to_n" style="width:60%;background-color:#323242;padding:7px;border-top-left-radius: 19px;border-top-right-radius: 19px;">Preference</th>'+
+                                                                      '</tr>';
+    
+    
+    if(sem_wise_regs.length!=0){
+      console.log(sem_wise_regs)
+      for(var j=0;j<sem_wise_regs.length;j++){
+        var the_string = "";
+        // console.log(sem_wise_regs[j].order)
+        orders = sem_wise_regs[j].order
+        let order_stu = Object.keys(orders);
+        order_stu.forEach((k) => {
+          the_string+="<b>"+k+"</b>. "+orders[k].replaceAll("_"," ")+"<br>"
+        })
+        document.getElementById("table_sem"+i).innerHTML += '<tr>'+
+                                                                    '<td class="row_for_search" style="border:3px solid #323242;font-size:x-small">'+sem_wise_regs[j].Roll+'</td>'+
+                                                                    '<td style="line-height:40px;background-color:#323242;">'+the_string+'</td></tr></table>';
+          
+        
+      }
+    }
+    else{
+      document.getElementById("table_sem"+i).innerHTML += '<tr><td colspan=2>'+
+                                                            '<div style="width:100%;background-color:#292936;border-radius:12px;padding-bottom:24px;padding-top:24px;box-shadow: 7px 7px 8px #100f0f44;" id="elecs_sub_div">No Registrations yet...</div>'+
+                                                          '</td></tr>';
+    }
+  }
+  
+  
+  add_name_roll_dept(name, branch, roll_num);
+  status();
+  
+   
+</script>

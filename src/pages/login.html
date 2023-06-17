@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="/css/style(log).css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="top-left" style=" margin: 0;text-shadow:10px 10px 10px black;"><h1>ElectiveMGT</h1></div>
+    <div style="z-index:1;" class="image-container" >
+      
+      <img src="https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/pngtree-student-boy-in-classroom-sitting-at-his-desk-is-raising-hand-png-image_6347676.png?v=1684912680205" class ="img" alt="Vector Image">
+      
+    </div>
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="loginForm" onsubmit = "login(event)">
+        <div class="form-group">
+          <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" name="password" placeholder = "Password" required>
+        </div>
+        <br>
+        <a href="/fp" alt = "forgot password?" style="color: white;"><p style="text-align: right; margin-right: 20px;">Forgot password?</p></a>
+        <div class="form-group" id = "log">
+          <input type="submit" value="Login" class = "lbtn" id ="mySubmit">
+        </div>
+        <div class="form-group" id = "reg">
+          <input type="button" value="Register" class = "rbtn" onclick="window.location.href='/call_page'">
+        </div>
+      </form>
+      <p id="message"></p>
+    </div>
+  </div>
+  <br>
+
+  <script>
+  
+  
+     const  URLs = ['/oes_stu','/oes_admin']
+ 
+      var err = document.getElementById("message")
+      var count = 0;
+    
+      async function fetch_vals(){
+        response = await fetch("./log_me");
+        data = await response.json();
+        obj = data;
+        localStorage.setItem('Users', JSON.stringify(obj));
+      }
+    
+      fetch_vals();
+      
+      async function login(e) {
+        
+        e.preventDefault()
+            err.innerHTML = ""
+            console.log('test') 
+            const uname = document.querySelector('#username');
+            let data = { 
+                username:document.querySelector('#username').value, 
+                password:document.querySelector('#password').value 
+            } 
+            
+        
+            fetch_vals();
+        
+            var user_vals = JSON.parse(localStorage.getItem('Users'));
+            
+            console.log(data); 
+            console.log(user_vals);
+        
+            err.innerHTML = ""
+            var c = 0;
+            let mail = ""
+            let name = ""
+            for (i=0; i<user_vals.length; i++){
+                  
+                console.log(user_vals[i].username)
+                if(user_vals[i].username==data.username){
+                  c = 1 
+                  mail = user_vals[i].email
+                  name = user_vals[i].name
+                  if(user_vals[i].password!=data.password){
+                    c = 2
+                  }
+                  else {
+                    if (user_vals[i].type == "stud"){
+                      document.location.href = URLs[0]; 
+                      // alert(user_vals[i].name)
+                      localStorage.setItem('USERNAME', JSON.stringify(user_vals[i].name));                      
+                      // alert(user_vals[i].roll)
+                      localStorage.setItem('ROLL_NUM', JSON.stringify(user_vals[i].roll));                      
+                      // alert(user_vals[i].comp)
+                      localStorage.setItem('COURSES', JSON.stringify(user_vals[i].comp));   
+                      localStorage.setItem('SEMS', JSON.stringify(user_vals[i].sem));  
+                      localStorage.setItem('DEPARTMENT', JSON.stringify(user_vals[i].dept));  
+                    }
+                    else if (user_vals[i].type == "fac"){
+                      document.location.href = URLs[1];
+                      // alert(user_vals[i].name)
+                      localStorage.setItem('USERNAME', JSON.stringify(user_vals[i].name));                      
+                      // alert(user_vals[i].roll)
+                      localStorage.setItem('ROLL_NUM', JSON.stringify(user_vals[i].roll));                      
+                      // alert(user_vals[i].comp)
+                      localStorage.setItem('COURSES', JSON.stringify(user_vals[i].comp));
+                      localStorage.setItem('SEMS', JSON.stringify(user_vals[i].sem));  
+                      localStorage.setItem('DEPARTMENT', JSON.stringify(user_vals[i].dept));  
+                    }
+                  }
+                }
+  
+            }
+            err.innerHTML = ""
+
+            if (c == 0) {
+              err.innerHTML += "User doesn't exists!!!!!!"
+            }
+            else if (c == 2) {
+              err.innerHTML += "Incorrect Password!!!!!!"
+              count+=1
+              if (count == 3) {
+                err.innerHTML = ""
+                document.getElementById("mySubmit").disabled = true;
+                err.innerHTML += `Account Blocked for Multiple Wrong Password attempts..!!! <br> Try Resetting your Password...`
+                
+                const response1 = await fetch("/block_acc", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ username: uname.value, name: name, email: mail}),
+                });
+    
+                const resu = response1.json()
+                console.log(resu.msg)
+
+                return
+              }
+            }
+
+}
+
+ 
+  
+  </script>
+</body>
+</html>

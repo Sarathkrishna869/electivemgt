@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+    background-color: #f2f2f2;
+    background-image: url("https://cdn.glitch.global/e253bec2-5600-44bf-b3e5-fb0ee3fea051/pattern.png?v=1684864343130");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .container {
+    background-color: #292836;
+    width: 960px;
+    height: 510px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 80px;
+    box-shadow: 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5%;
+  }
+
+  .top-left h1 {
+    font-size: 35px;
+    color: white;
+    margin-left: 80%;
+  }
+
+  .top-left {
+    float:left;
+    position: absolute;
+  }
+
+  #loginForm {
+    margin-top: 10%;
+  }
+
+#log,#reg{
+ margin-top: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+  a {
+    margin-top: 0;
+  }
+  
+  .image-container {
+    text-align: center;
+    margin-top: 10%;
+  }
+  
+  .login-container {
+    margin-top: 6%;
+    text-align: center;
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  h1 {
+    text-align: center; 
+    color: white;
+  }
+  
+  .form-group {
+    margin-top: 10%;
+    margin-bottom: 15px;
+  }
+
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666666;
+  }
+  
+
+
+  input[type="text"],
+  input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"],input[type="button"] {
+    width: 75%;
+    padding: 10px;
+    background-color: #6a5cd0;
+    color: #ffffff;
+    border: none;
+    border-radius: 6.5px;
+    cursor: pointer;
+    margin-top: 3%;
+  }
+
+  input[type="submit"]:hover, input[type="button"]:hover  {
+    background-color: white;
+    color: blue;
+    box-shadow: 10px 10px 10px black;
+  }
+  
+  #message {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+  }
+
+
+  
+  @media screen and (max-width: 1200px) {
+    .container {
+      flex-direction: column;
+      /* background-color: tomato; */
+      width: 80%;
+      height: 75%;
+      margin-top: 25%;
+    }
+  
+    .image-container {
+      text-align: center;
+      padding-bottom: 20px;
+      margin-top: 15%;
+    }
+
+    .img {
+        width: 50%;
+        height: 100%;
+    }
+  
+    .login-container {
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .form-group{
+      margin-top: 35px;
+    }
+
+    a {
+      margin-top: 6%;
+    }
+
+
+    input[type="submit"],input[type="button"]{
+      width: 45%;
+      height: 40px;
+    }
+
+    #username,#password {
+      width: 60%;
+      height: 23.5px;
+    }
+    
+    .top-left h1 {
+      margin-left: 100%;
+    }
+
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 540px;
+      margin-top: 50px;
+    }
+    .top-left {
+      position: relative;
+      float: center;
+      text-align: center;
+    }
+    
+    .top-left h1 {
+      margin-left: 0;
+    }
+    
+    .image-container {
+      margin-top: 0;
+    }
+    
+
+  }
+  
+  @media screen and (max-width: 600px) {
+    .container {
+      max-width: 400px;
+    }
+
+    .top-left {
+      position: relative;
+      float: center;
+      text-align: center;
+    }
+
+    .img {
+      width: 60%;
+      height: 100%;  
+    }
+
+    .login-container{
+      margin-top: 0;
+    }
+    
+    #loginForm {
+      padding-top: 3%;
+    }
+
+    .form-group {
+      margin-top: 1%;
+    }
+
+    #username,#password {
+      width: 80%;
+      height: 30px;
+    }
+
+    input[type="submit"],input[type="button"]{
+      width: 60%;
+      height: 40px;
+    }
+
+    .top-left h1 {
+      margin-left: 0;
+    }
+
+  }
